@@ -41,9 +41,18 @@ const API = "https://hacker-news.firebaseio.com/v0";
 const FILTER_KEYWORDS = ["llm", "openai", "codex", "claude", "anthropic", "lisp", "token", "agent", "genai", "zig", "rust", "mythos", "sonnet", "gpt", "opus", "fable"];
 const FILTER_PATTERNS = [/\bvibecod/i, /\bvibe[-\s]?cod/i, /\bAI\b/];
 const FILTER_DOMAINS = ["anthropic.com", "openai.com", "simonwillison.net"];
+const LINUX_KEYWORDS = ["linux", "ubuntu", "debian", "fedora", "gentoo", "kernel", "bsd"];
+
+function isLinuxAICombo(title) {
+  const lower = title.toLowerCase();
+  const hasLinux = LINUX_KEYWORDS.some(kw => lower.includes(kw));
+  const hasAI = FILTER_KEYWORDS.some(kw => lower.includes(kw)) || FILTER_PATTERNS.some(p => p.test(title));
+  return hasLinux && hasAI;
+}
 
 function isFiltered(item) {
   const title = item.title ?? "";
+  if (isLinuxAICombo(title)) return false;
   if (FILTER_KEYWORDS.some(kw => title.toLowerCase().includes(kw))) return true;
   if (FILTER_PATTERNS.some(p => p.test(title))) return true;
   const domain = domainFrom(item.url || "");
