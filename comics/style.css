@@ -31,7 +31,7 @@ main { display: flex; flex: 1; overflow: hidden; }
 .comic-author { font-size: 14px; font-weight: bold; text-align: center; margin-bottom: 8px; }
 .dims { font-weight: normal; color: var(--text-muted); font-size: 12px; }
 .comic-image-wrapper { text-align: center; }
-.comic-image { width: 100%; max-height: 85vh; object-fit: contain; border-radius: 6px; }
+.comic-image { width: 900px; max-width: 100%; border-radius: 6px; }
 .error-inline { text-align: center; padding: 20px; background: var(--error-bg); border: 1px solid var(--error-border); border-radius: 6px; color: #721c24; font-size: 14px; }
 .unavailable-note { text-align: center; padding: 16px; background: var(--unavailable-bg); border-radius: 6px; color: var(--unavailable-text); font-size: 14px; }
 .empty-state { text-align: center; padding: 60px 20px; color: var(--text-muted); }
