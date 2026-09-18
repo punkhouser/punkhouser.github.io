@@ -4,33 +4,196 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mumbo Jumbo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <style>
-.orange-btn {
-  background: #ff6600;
-  color: #000;
-  font-weight: bold;
-  text-decoration: none;
-  border-radius: 3px;
+:root {
+  --bg: #f7f9fc;
+  --surface: #ffffff;
+  --text: #1a2233;
+  --muted: #667085;
+  --accent: #ff6600;
+  --accent-soft: #fff1e6;
+  --border: #e7ebf2;
+  --shadow: 0 1px 2px rgba(16, 24, 40, 0.04), 0 8px 24px rgba(16, 24, 40, 0.06);
 }
 
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(1000px 500px at 10% -10%, #e8f1ff 0%, transparent 55%),
+    radial-gradient(900px 450px at 100% 0%, #fff0e6 0%, transparent 50%),
+    var(--bg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 56px 24px 80px;
+}
+
+h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin: 0 0 28px;
+  background: linear-gradient(120deg, #1a2233 0%, #3b4a6b 60%, var(--accent) 140%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 0;
+  margin: 0 0 44px;
+}
+
+nav a {
+  display: inline-block;
+  padding: 9px 16px;
+  border-radius: 999px;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--text);
+  text-decoration: none;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+nav a:hover {
+  transform: translateY(-2px);
+  border-color: #d5dceb;
+  box-shadow: var(--shadow);
+}
+
+nav a.orange-btn {
+  background: linear-gradient(135deg, #ff7a1a, var(--accent));
+  border-color: transparent;
+  color: #fff;
+  font-weight: 600;
+}
+
+nav a.orange-btn:hover {
+  box-shadow: 0 10px 24px rgba(255, 102, 0, 0.28);
+}
+
+h2 {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  margin: 0 0 16px;
+}
+
+.links {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 44px;
+}
+
+.links a {
+  display: block;
+  padding: 14px 18px;
+  border-radius: 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.98rem;
+  font-weight: 500;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.03);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.links a::after {
+  content: "\2197";
+  float: right;
+  color: var(--accent);
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.links a:hover {
+  transform: translateY(-2px);
+  border-color: #d5dceb;
+  box-shadow: var(--shadow);
+}
+
+.links a:hover::after {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.quote {
+  margin: 0;
+  padding: 20px 22px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--accent-soft), #fdfbff);
+  border: 1px solid #ffe0c7;
+  font-size: 1.02rem;
+  color: #3b3328;
+}
+
+.quote i {
+  display: block;
+  margin-top: 10px;
+  font-size: 0.85rem;
+  font-style: normal;
+  color: var(--muted);
+}
+
+.quote a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.quote a:hover { text-decoration: underline; }
+
+@media (max-width: 520px) {
+  .wrap { padding: 36px 18px 60px; }
+  h1 { font-size: 1.9rem; }
+}
 </style>
 <body>
-    <h1>Punkhouser noted</h1>
-    <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a class="orange-btn" href="/hn.html">A bit saner HN</a></li>
-	    <li><a href="/comics/index.html">Fresh comics (for personal use only!)</a></li>
-	    <li><a href="/dirtball">⚾ Dirtball</a></li>
-        </ul>
-    </nav>
-    <h2>Saved links:</h2>
-    <p> <a href="https://fabiensanglard.net/ilike/index.html">0x10 Rules</a> </p>
-    <p> <a href="https://fabiensanglard.net/html/index.html">All you may need is html</a> </p>
-    <p> <a href="https://www.paulgraham.com/greatwork.html">How to do great work</a> </p>
-    <p> <a href="https://michael.orlitzky.com/articles/advice_from_the_trenches.xhtml">Advice from the trenches</a> </p>
-    <h2>Quotes (and stuff):</h2>
-    <p>"Modern software sucks. It’s built by self-proclaimed “engineers” who make their chat box addiction your problem." <i>source: <a href="https://dbushell.com/2026/08/07/sublime-text/">dbushell.com</a></i></p>
+    <div class="wrap">
+        <h1>Punkhouser noted</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a class="orange-btn" href="/hn.html">A bit saner HN</a></li>
+                <li><a href="/dirtball">⚾ Dirtball</a></li>
+            </ul>
+        </nav>
+        <h2>Saved links</h2>
+        <div class="links">
+            <a href="https://fabiensanglard.net/ilike/index.html">0x10 Rules</a>
+            <a href="https://fabiensanglard.net/html/index.html">All you may need is html</a>
+            <a href="https://www.paulgraham.com/greatwork.html">How to do great work</a>
+            <a href="https://michael.orlitzky.com/articles/advice_from_the_trenches.xhtml">Advice from the trenches</a>
+        </div>
+        <h2>Quotes (and stuff)</h2>
+        <blockquote class="quote">
+            "Modern software sucks. It’s built by self-proclaimed “engineers” who make their chat box addiction your problem."
+            <i>source: <a href="https://dbushell.com/2026/08/07/sublime-text/">dbushell.com</a></i>
+        </blockquote>
+    </div>
 </body>
 </html>
